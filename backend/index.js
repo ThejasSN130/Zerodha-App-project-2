@@ -14,22 +14,15 @@ const { OrdersModel } = require("./models/orderModel");
 const app = express();
 const dburl = process.env.ATLAS_URL;
 const PORT = process.env.PORT || 4000;
-const allowedOrigins = ["https://zerodha-clone-cimi.onrender.com/login", "https://dashboard-kite-zerodha.onrender.com/holdings","https://dashboard-kite-zerodha.onrender.com/positions"];
 
-const corsOptions = {
-  origin: function (origin, callback) {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
-  credentials: true,
-};
+app.use(cors({
+  origin: 'https://zerodha-clone-cimi.onrender.com',
+  credentials: true
+}));
 
 app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors(corsOptions));
+
 
 app.use(express.json());
 app.use(cookieParser());
