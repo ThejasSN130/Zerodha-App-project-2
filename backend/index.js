@@ -10,30 +10,29 @@ const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const authRoute = require("./Routes/AuthRoute.js");
 const { OrdersModel } = require("./models/orderModel");
-const allowedOrigins = [
-  'https://zerodha-clone-cimi.onrender.com',
-  'https://dashboard-kite-zerodha.onrender.com'
-];
 
 const app = express();
 const dburl = process.env.ATLAS_URL;
 const PORT = process.env.PORT || 4000;
+const allowedOrigins = [
+  "https://zerodha-clone-cimi.onrender.com",
+  "https://dashboard-kite-zerodha.onrender.com",
+];
 
-app.use(cors({
+const corsOptions = {
   origin: function (origin, callback) {
-    if (!origin) return callback(null, true);
-    if (allowedOrigins.includes(origin)) {
-      return callback(null, true);
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
     } else {
-      return callback(new Error('Not allowed by CORS'));
+      callback(new Error("Not allowed by CORS"));
     }
   },
-  credentials: true
-}));
+  credentials: true,
+};
 
 app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: true }));
-
+app.use(cors(corsOptions));
 
 app.use(express.json());
 app.use(cookieParser());
