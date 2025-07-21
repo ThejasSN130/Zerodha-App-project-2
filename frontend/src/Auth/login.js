@@ -41,7 +41,7 @@ const Login = () => {
       if (success) {
         handleSuccess(message);
         setTimeout(() => {
-          window.location.href = "http://localhost:3000/";
+          window.location.href = "https://dashboard-kite-zerodha.onrender.com/";
         }, 500);
       } else {
         handleError(message);
