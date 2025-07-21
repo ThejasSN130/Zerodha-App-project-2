@@ -38,7 +38,7 @@ const Signup = () => {
         handleSuccess(message);
         setTimeout(() => {
           window.location.href = "https://dashboard-kite-zerodha.onrender.com/";
-        }, 1000);
+        }, 100);
       } else {
         handleError(message);
       }
