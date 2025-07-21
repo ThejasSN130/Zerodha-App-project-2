@@ -14,7 +14,7 @@ const { OrdersModel } = require("./models/orderModel");
 const app = express();
 const dburl = process.env.ATLAS_URL;
 const PORT = process.env.PORT || 4000;
-const allowedOrigins = ["http://localhost:3001", "http://localhost:3000"];
+const allowedOrigins = ["https://zerodha-clone-cimi.onrender.com/", "https://dashboard-kite-zerodha.onrender.com/"];
 
 const corsOptions = {
   origin: function (origin, callback) {
