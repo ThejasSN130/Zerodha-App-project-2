@@ -42,7 +42,7 @@ const Login = () => {
         handleSuccess(message);
         setTimeout(() => {
           window.location.href = "https://dashboard-kite-zerodha.onrender.com/";
-        }, 500);
+        }, 100);
       } else {
         handleError(message);
       }
