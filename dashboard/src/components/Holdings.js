@@ -2,15 +2,15 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { VerticalGraph } from "./VerticalGraph";
 
-// import { holdings } from "../data/data";
-
 const Holdings = () => {
   const [allHoldings, setAllHoldings] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:4000/allHoldings").then((res) => {
-      setAllHoldings(res.data);
-    });
+    axios
+      .get("https://zerodha-app-project-2.onrender.com/allHoldings")
+      .then((res) => {
+        setAllHoldings(res.data);
+      });
   }, []);
 
   const labels = allHoldings.map((subArray) => subArray["name"]);

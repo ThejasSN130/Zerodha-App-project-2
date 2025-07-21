@@ -33,7 +33,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        "http://localhost:4000/login",
+        "https://zerodha-app-project-2.onrender.com/login",
         inputValue,
         { withCredentials: true }
       );
