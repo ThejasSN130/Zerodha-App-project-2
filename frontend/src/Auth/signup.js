@@ -37,7 +37,7 @@ const Signup = () => {
       if (success) {
         handleSuccess(message);
         setTimeout(() => {
-          window.location.href = "http://localhost:3000/";
+          window.location.href = "https://dashboard-kite-zerodha.onrender.com/";
         }, 1000);
       } else {
         handleError(message);
